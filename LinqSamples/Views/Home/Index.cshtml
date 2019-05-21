@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+        <hr />
+
+        @{
+            var avengersOrderedByName = (List<Avenger>)ViewBag.avengersOrderedByName;
+            var avengersOrderedByAge = (List<Avenger>)ViewBag.avengersOrderedByAge;
+            var avengersWithLetterA = (List<Avenger>)ViewBag.avengersWithLetterA;
+            var avengersOlders = (List<Avenger>)ViewBag.avengersOlders;
+        }
+
+        <h2>Avengers Ordered by Name</h2>
+        @foreach (var item in avengersOrderedByName)
+        {
+            <p>
+                @item.Id - @item.Codename - @item.Age - @item.MainSkill
+            </p>
+        }
+        <hr />
+
+        <h2>Avengers Ordered by Age</h2>
+        @foreach (var item in avengersOrderedByAge)
+        {
+            <p>
+                @item.Id - @item.Codename - @item.Age - @item.MainSkill
+            </p>
+        }
+        <hr />
+
+        <h2>Avengers With "A"</h2>
+        @foreach (var item in avengersWithLetterA)
+        {
+            <p>
+                @item.Id - @item.Codename - @item.Age - @item.MainSkill
+            </p>
+        }
+        <hr />
+
+        <h2>Olders Avengers</h2>
+        @foreach (var item in avengersOlders)
+        {
+            <p>
+                @item.Id - @item.Codename - @item.Age - @item.MainSkill
+            </p>
+        }
+        <hr />
+    </div>
