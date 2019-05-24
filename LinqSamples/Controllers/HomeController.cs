@@ -87,12 +87,12 @@ namespace LinqSamples.Controllers
 
             stopwatch.Stop();
 
-            TempData["Message"] = $"Time elapsed: {stopwatch.Elapsed.TotalMinutes} seconds";
+            TempData["Message"] = $"Time elapsed: {stopwatch.Elapsed.TotalSeconds} seconds";
 
             return View(result);
         }
 
-        public IActionResult OrdersOptimized()
+        public IActionResult OptimizedOrders()
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
