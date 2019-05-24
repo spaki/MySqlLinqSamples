@@ -1,53 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var avengersOrderedByName = (List<Avenger>)ViewBag.avengersOrderedByName;
+    var avengersOrderedByAge = (List<Avenger>)ViewBag.avengersOrderedByAge;
+    var avengersWithLetterA = (List<Avenger>)ViewBag.avengersWithLetterA;
+    var avengersOlders = (List<Avenger>)ViewBag.avengersOlders;
+    var message = TempData["Message"];
 }
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-        <hr />
-
-        @{
-            var avengersOrderedByName = (List<Avenger>)ViewBag.avengersOrderedByName;
-            var avengersOrderedByAge = (List<Avenger>)ViewBag.avengersOrderedByAge;
-            var avengersWithLetterA = (List<Avenger>)ViewBag.avengersWithLetterA;
-            var avengersOlders = (List<Avenger>)ViewBag.avengersOlders;
-        }
-
-        <h2>Avengers Ordered by Name</h2>
-        @foreach (var item in avengersOrderedByName)
-        {
-            <p>
-                @item.Id - @item.Codename - @item.Age - @item.MainSkill
-            </p>
-        }
-        <hr />
-
-        <h2>Avengers Ordered by Age</h2>
-        @foreach (var item in avengersOrderedByAge)
-        {
-            <p>
-                @item.Id - @item.Codename - @item.Age - @item.MainSkill
-            </p>
-        }
-        <hr />
-
-        <h2>Avengers With "A"</h2>
-        @foreach (var item in avengersWithLetterA)
-        {
-            <p>
-                @item.Id - @item.Codename - @item.Age - @item.MainSkill
-            </p>
-        }
-        <hr />
-
-        <h2>Olders Avengers</h2>
-        @foreach (var item in avengersOlders)
-        {
-            <p>
-                @item.Id - @item.Codename - @item.Age - @item.MainSkill
-            </p>
-        }
-        <hr />
+@if (message != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @message
     </div>
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p><a asp-action="Index">Get Avengers From Memory</a></p>
+    <p><a asp-action="GetAvengersFromDb">Get Avengers From DB</a></p>
+    @*<p><a asp-action="CreateAvengers">Create Avengers</a></p>*@
+    @*<p><a asp-action="CreateOrders">Create Orders</a></p>*@
+    <p><a asp-action="Orders" target="_blank">Orders Report</a></p>
+    <p><a asp-action="OptimizedOrders" target="_blank">Optimized Orders Report</a></p>
+
+    <hr />
+
+    <h2>Avengers Ordered by Name</h2>
+    @foreach (var item in avengersOrderedByName)
+    {
+        <p>
+            @item.Id - @item.Codename - @item.Age - @item.MainSkill
+        </p>
+    }
+    <hr />
+
+    <h2>Avengers Ordered by Age</h2>
+    @foreach (var item in avengersOrderedByAge)
+    {
+        <p>
+            @item.Id - @item.Codename - @item.Age - @item.MainSkill
+        </p>
+    }
+    <hr />
+
+    <h2>Avengers With "A"</h2>
+    @foreach (var item in avengersWithLetterA)
+    {
+        <p>
+            @item.Id - @item.Codename - @item.Age - @item.MainSkill
+        </p>
+    }
+    <hr />
+
+    <h2>Olders Avengers</h2>
+    @foreach (var item in avengersOlders)
+    {
+        <p>
+            @item.Id - @item.Codename - @item.Age - @item.MainSkill
+        </p>
+    }
+    <hr />
+</div>
