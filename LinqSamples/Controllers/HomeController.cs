@@ -65,7 +65,9 @@ namespace LinqSamples.Controllers
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var query = db.Orders.OrderBy(e => e.Date);
+            var query = db.Orders.Where(e => e.Id > 0);
+            query = query.OrderBy(e => e.Date);
+
             var orders = query.ToList();
             var result = new List<OrderDetailDTO>();
 
@@ -99,6 +101,7 @@ namespace LinqSamples.Controllers
 
             var query = db
                 .OrderItems
+                .Where(e => e.Id > 0)
                 .OrderBy(e => e.Order.Date)
                 .Select(e => new {
                     OrderId = e.Order.Id,
