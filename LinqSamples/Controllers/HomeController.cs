@@ -22,6 +22,8 @@ namespace LinqSamples.Controllers
                 new Avenger { Codename = "Hulk", MainSkill = "Strength", Age = 40 },
             };
 
+            // -> https://linqsamples.com/linq-to-objects/restriction/Where-numbers-linq
+
             ViewBag.avengersOrderedByName = avengers.OrderBy(e => e.Codename).ToList();
             ViewBag.avengersOrderedByAge = avengers.OrderByDescending(e => e.Age).ToList();
             ViewBag.avengersWithLetterA = avengers.Where(e => e.Codename.Contains("a")).OrderBy(e => e.Codename).ToList();
